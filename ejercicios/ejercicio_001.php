@@ -4,7 +4,7 @@
     </head>
     <body>
         <h1>CATEGORÍAS</h1>
-        <a href="ejercicio_002.php">Crear Categoría</a>
+        <a href="ejercicio_002.php?action=Crear">Crear Categoría</a>
         <?php 
         require '../conexion.php';
         
@@ -22,8 +22,8 @@
             <strong><?php echo $line['id'] . '.-' . $line['nombre'] ?></strong>
         </span>
         
-        <a href="ejercicio_002.php?id=<?php echo $line['id'] ?>" >Editar</a>
-        <a href="eliminar_categoria.php?id=<?php echo $line['id'] ?>" >Eliminar</a>
+        <a href="ejercicio_002.php?id=<?php echo $line['id'] ?>&action=Editar" >Editar</a>
+        <a href="#" onclick="eliminar(<?php echo $line['id'] ?>, '<?php echo $line["nombre"] ?>')" >Eliminar</a>
             
         <table border="1">
                 <tr>
@@ -54,5 +54,19 @@
                     
                         <?php }?>
             <?php }?>
+        <script>
+            
+            function eliminar(id, nombre){
+                console.log(nombre);
+                var respuesta = confirm("Estas seguro de eliminar la categoria "+nombre);
+                if(respuesta){
+                    location.href = "eliminar_categoria.php?id="+id;
+                }else{
+                    return false;
+                }
+            }
+            
+        </script>
     </body>
+    
 </html>

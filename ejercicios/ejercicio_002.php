@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Nueva Categoria</title>
+        <title><?php echo $_GET['action'] ?> Categoria</title>
         <style>
             body{
                 margin: 20px auto;
@@ -30,7 +30,7 @@
             }
         ?>
         <div style="border: 1px solid black; width: 50%">
-            <h1>Crear Categoría</h1>
+            <h1><?php echo $_GET['action'] ?> Categoría</h1>
             <form action="guardar_categoria.php" 
                   method="POST">
                 <input type="hidden" name="id" value="<?php if (isset($_GET['id'])) {echo $categoria['id'];} ?>"/>
